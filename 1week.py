@@ -1,7 +1,9 @@
 # 파이썬 기초 (+카카오톡 챗봇) 스터디 1주차
 
 # python 자료형
-# *기본적으로 Python은 인터프리터 언어로, C, C  # , C++, Java와 같은 타입형 자료형을 컴파일 시 지정하는 정적언어가 아니라 실행시 결정되는 동적언어이므로, 변수 선언시 타입이 명시할 필요가 없는 등 비교적 형변환에서 유동적이다.
+
+# * 기본적으로 Python은 인터프리터 언어로, C, C  # , C++, Java와 같은 타입형 자료형을 컴파일 시 지정하는 정적언어가 아니라 실행시 결정되는 동적언어이므로,
+# 변수 선언시 타입을 명시할 필요가 없는 등 비교적 형변환에서 유동적이다.
 
 # 자료형
 
@@ -181,8 +183,7 @@ print("자유" in str3)
 
 numbers = [1, 2, 3, 4, 5]
 
-print(type(numbers))
-print(numbers)
+print(numbers, type(numbers))
 # [1, 2, 3, 4, 5]
 
 
@@ -190,8 +191,7 @@ print(numbers)
 
 values = [0, "문자열", 3, "파이썬", 5]
 
-print(type(values))
-print(values)
+print(values, type(values))
 # [0, '문자열', 3, '파이썬', 5]
 
 # - 시작은 C계열 언어와 동일하게 0 부터 시작.
@@ -205,19 +205,19 @@ print(values[0])
 
 values = [0, "문자열", 3, "파이썬", 5]
 
-print(values[-1]) # -> 해당 위치의 값을 return
+print(values[-1])  # -> 해당 위치의 값을 return
 # 5
 
-print(values[2:]) # -> [2] 부터 끝까지 잘라서 list로 return
+print(values[2:])  # -> [2] 부터 끝까지 잘라서 list로 return
 # [3, '파이썬', 5]
 
-print(values[-2:]) # -> [-2] 부터 끝까지
+print(values[-2:])  # -> [-2] 부터 끝까지
 # ['파이썬', 5]
 
-print(values[1:-2]) # -> [1] 부터 [-2]까지 잘라서 list로 return
+print(values[1:-2])  # -> [1] 부터 [-2]까지 잘라서 list로 return
 # ['문자열', 3]
 
-print(values[:-2]) # -> 처음부터[-2]까지
+print(values[:-2])  # -> 처음부터[-2]까지
 # [0, '문자열', 3]
 
 
@@ -368,18 +368,198 @@ print(number2)
 # range 는 별도의 자료형으로 존재하나, collection 형태의 자료구조와는 거리가 멀고 순수하게 범위를 뜻함.
 # for 문 등의 반복문에 주로 활용됨.
 
-a = range(2,6)
+a = range(2, 6)
 
 print(a)
 print(type(a))
 
 print(list(a))
 
-dir(a)
+# range(start, stop, step) 으로 설정시 혹은, 속성값으로 간격 설정 가능.
+
+a = range(2, 10, 2)
+
+print(list(a))
+
+# range 의 속성값들은 모두 readonly 로 변경이 불가.
 
 
 
-# 9. bool
+# 4. Set
+
+# set       : 정수형
+# frozenset : 실수형
+
+# 4.1 set
+
+# - 중괄호 {}로 표현.
+# - list 와 달리 순서가 존재하지 않고(정렬 불가), 요소의 중복을 허용하지 않음.
+# - 수학의 집합의 개념으로 여김.
+
+# - set 관련 메소드
+
+# add()         : 세트에 요소를 추가.
+# clear()	    : 세트 안의 요소를 모두 제거.
+# copy()	    : 세트를 복사하여제공. (*깊은 복사)
+# discard()     : 세트에서 해당 요소를 제거함.
+# pop()	        : set의 요소 중 하나를 무작위로 꺼내면서 삭제. (list 의 pop() 과 달리 인자가 없음.)
+# remove()	    : 특정 값의 요소를 제거. (* discard() 와 달리 해당하는 요소가 없으면 에러 발생.)
+# difference()  : 두 세트 혹은 그 이상의 세트에 존재하지 않는 값을 세트로 return. (차집합 개념)
+# difference_update() : 현재 세트에 differnce()의 결과를 반영함.
+# intersection(): 두 세트 혹은 그 이상의 세트와 공통요소를 세트로 return (교집함 개념)
+# intersection_update()	: 현재 세트에 ntersection() 결과를 반영함.
+# symmetric_difference() : 공통 요소를 제거한 합집합을 세트로 return.
+# symmetric_difference_update()	: 현재 세트에 symmetric_difference() 결과를 저장.
+# union()	    : 두 세트 혹은 그 이상의 세트의 요소를 모두 세트로 return. (합집합 개념)
+# update()	    : 현재 세트에 union()의 결과를 반영함.
+# isdisjoint()  : 공통요소 존재 여부를 return. (공통요소가 없을시 True)
+# issubset()	: 모든 요소가 파라미터에도 존재하는지 여부를 return. (부분집합)
+# issuperset()  : 파라미터의 모든 요소가 세트에 존재하는지 여부를 return.
+
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+
+# add()
+x.add("orange")
+
+print(x)
+# {"apple", "banana", "cherry", "orange"}
+
+# difference()
+print(x.difference(y))
+# {'banana', 'orange', 'cherry'}
+
+# - 연산자 사용 가능.
+print(x - y)
+
+print(x.difference_update(y))
+# None
+print(x)
+# {'cherry', 'orange', 'banana'}
+
+# intersection()
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+
+print(x.intersection(y))
+# {"apple"}
+
+# & 연산자 사용 가능.
+print(x & y)
+
+x.intersection_update(y)
+
+print(x)
+# {"apple"}
+
+# symmetric_difference()
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+
+print(x.symmetric_difference(y))
+# {'google', 'banana', 'microsoft', 'cherry'}
+
+x.symmetric_difference_update(y)
+
+print(x)
+# {'google', 'banana', 'microsoft', 'cherry'}
+
+
+# union()
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+
+print(x.union(y))
+# {'google', 'banana', 'apple', 'microsoft', 'cherry'}
+
+# | 연산자 사용 가능. (* + 연산자는 list 에만 지원됨.)
+print(x | y)
+
+x.update(y)
+
+print(x)
+# {'google', 'banana', 'apple', 'microsoft', 'cherry'}
+
+
+# isdisjoint()
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "facebook"}
+
+print(x.isdisjoint(y))
+# True
+
+# issubset(), issuperset()
+x = {"a", "b", "c"}
+y = {"f", "e", "d", "c", "b", "a"}
+
+print(x.issubset(y))
+# True
+print(y.issuperset(x))
+# True
+
+
+# 4.2 frozenset
+
+# - tuple 처럼, 형태는 set와 동일하나, 요소의 추가, 변경, 삭제가 불가능함.
+# - update에 해당하는 함수들이 존재하지 않음.
+
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+
+z = frozenset(x)
+
+print(z, type(z))
+
+# frozenset 에 다른 set을 합친 결과는 frozenset이 됨.
+print(z | y)
+
+
+# 5. 매핑형
+
+# dict: 딕셔너리
+
+# - C계열 언어의 Map처럼 Key와 Value로 구성되 자료형.
+# - {}로 선언하며, 순서는 지정되지 않은 Key의 중복을 허용하지 않음.
+# - Key 로 list 나 set 등의 컬렉션 형태의 자료형은 사용할 수 없다.
+
+dict1 = {
+  1: "Ford",
+  "model": "Mustang",
+  "year": 1964,
+  None: None
+}
+
+print(dict1)
+# {1: 'Ford', 'model': 'Mustang', 'year': 1964, None: None}
+
+# - 딕셔너리 요소 꺼내기
+print(dict1["model"])
+# "Mustang"
+print(dict1.get("model"))
+# "Mustang"
+
+# keys() 함수를 사용하면, 키들을 list 로 return.
+
+print(dict1.keys(), type(dict1.keys()))
+# type 명이 dict_keys 라고 나오지만, []로 표현된 걸 보면, list의 하위 class 임을 알 수 있다.
+
+# - 딕셔너리 관련 메소드
+
+# clear()	    : 딕셔너리 안의 요소를 모두 제거.
+# copy()	    : 딕셔너리를 복사하여 제공. (*깊은 복사)
+# fromkeys()	: 키와 값으로 묶어 딕셔너리로 return.
+# get()	        : 딕셔너리에서 해당하는 키로 값을 return.
+# items()	    : 키와 값을 한 쌍으로 튜플로 묶어, list로 return. (* 단순히, value만 return 되는 것이 아님에 주의.)
+# keys()	    : 키들을 list로 return.
+# values()	    : 값들을 list로 return.
+# pop()	        : 딕셔너리에서 키에 해당하는 값을 return. (인자로 키 필수.)
+# popitem()	    : 마지막에 입력된 key 요소를 제거.
+# setdefault()	: 딕셔너리에 해당 key 와 value 를 추가하고 value 값을 return. 단, 이미 key가 있는 경우, 기존 키의 값을 return만 함.
+# update()	    : 딕셔너리에 해당 key 와 value 를 추가하거나 해당 키의 값을 바꿈. (* 인자로 dict 형태로 넣어야 함.)
+
+
+
+# 6. bool
 
 # - 참 or 거짓을 나타내는 자료형.
 # - True, False 모두 대문자 값만을 가짐.(", ' 등의 따옴표 없이 입력)
