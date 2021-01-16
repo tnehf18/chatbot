@@ -164,43 +164,17 @@ print("자유" in str3)
 # * 이 외 len(str1), split(str1) 등 문자열 함수에 대해서는 추후에 다룰 예정.
 
 
-# 3. bool
 
-# - 참 or 거짓을 나타내는 자료형.
-# - True, False 모두 대문자 값만을 가짐.(", ' 등의 따옴표 없이 입력)
-# - 다른 자료형의 값에 따라 참과 거짓을 구별하기도 한다.
+# 3. Sequence 형
 
-#     값     Ture or False
-#  "문자열"     True
-#  ""           False
-#  [1, 2, 3]    True
-#  []           False
-#  ()           False
-#  {}           False
-#  1(*0 이 아닌 모든 숫자) True
-#  0            False
-#  None         False
-
-
-a = True
-
-print(a)
-
-print(bool("이것은 공백 문자가 아닙니다."))
-print(bool(""))
-print(bool([]))
-print(bool(()))
-print(bool({}))
-
-b = bool(6)
-print(b)
-print(int(b))
-print(bool(0))
-
+# list      : 리스트
+# tuple     : 튜플
+# range     : 범위
 
 # ☆☆☆
-# 3. list 리스트
+# 3.1 list 리스트
 
+# - 대괄호 [] 로 표현.
 # - Java나 C계열 언어의 경우, 배열 or List에 해당하며, 그보다는 제약이 적고 굉장히 유연하게 동작함.
 # - 또한, 제어문이나 표현방식, 선언시 값 대입 등 문법이 C계열과는 달라 숙련도에 따라 활용성이 크게 달라짐.
 
@@ -253,7 +227,7 @@ print(values[:-2]) # -> 처음부터[-2]까지
 # clear()       : 리스트 안의 요소를 모두 제거.
 # copy()        : 리스트를 복사하여 제공. (* 깊은 복사)
 # count()	    : 리스트에 해당 요소가 몇 개 포함되어 있는지 체크
-# extend()      : 리스트에 리스트(혹은 추가 가능한 요소를)를 뒤에 추가하여 확장.
+# extend()      : 리스트에 리스트(혹은 추가 가능한 요소를)를 뒤에 추가하여 확장.(+ 연산자가 가능)
 # index()	    : 해당 요소가 몇번째에 위치하는지 표시.
 # insert()      : 특정 위치에 해당 요소를 삽입 또는 교체.
 # pop()	        : 맨 마지막 요소(인자 없을시) or 특정 위치의 요소를 꺼내면서 삭제.
@@ -295,14 +269,145 @@ print(values1.count("라면"))
 print(values1.index("라면"))    # -> 처음 확인된 위치만 return
 
 # insert()
-print(values1.insert(6, "만두"))
+values1.insert(6, "만두")
+print(values1)
 
 # remove()
-print(values1.remove("라면"))
+values1.remove("라면")
+print(values1)
 
 # reserve()
-print(values1.reserve)
+values1.reverse()
+print(values1)
 
 # sort()
-print(values1.sort())
-print(values1.sort(reserve=True))
+values1.sort()
+print(values1)
+
+values1.sort(reverse=True)
+print(values1)
+
+
+# list 리스트의 Unpack 하기
+# 변수 선언시 변수 값을 list 로 선언할 경우, 자동으로 해당 list의 길이만큼 순서대로 값이 할당된다.
+values2 = [2, 3, 5]
+
+a, b, c = values2
+print(a)
+print(b)
+print(c)
+
+a, b = values2
+# 변수 수가 list 의 길이에 비해 부족할 경우 에러 발생. too many values to unpack (expected 2)
+# 단, *를 활용하면 변수가 부족할 경우에도 할당이 가능함.
+
+fruits = ["apple", "banana", "cherry", "strawberry", "raspberry"]
+
+green, yellow, *red = fruits
+
+print(green)
+print(yellow)
+print(red)
+
+
+[green, yellow, *red] = fruits
+
+print(green)
+print(yellow)
+print(red)
+
+
+values = [green, yellow, *red] = fruits
+
+print(values[0])
+print(yellow)
+print(red)
+
+print(values)
+print(len(values))
+
+# * 이렇게도 가능하나, 이를 헷갈려하지 말 것, 변수 values 에는 최종적으로 그냥 fruits가 삽입됐다고 이해하는 게 맞음.
+# a, b = 2 이런 식으로 values 와 [green, yellow, *red] 에 fruits 가 각각 삽입됐다고 이해하는 것이 옳으나,
+# 정작, values, [green, yellow, *red] = fruits 라고 코드를 작성하면 변수가 부족하다고 에러가 발생함. (이를 이해하는 것이 중요.)
+
+# + 연산자 활용 가능. (* extend() 함수 대체 가능.)
+list1 = ["a", "b", "c"]
+list2 = [1, 2, 3]
+
+list3 = list1 + list2
+print(list3)
+
+
+# 3.2 tuple 튜플
+
+# - 괄호 ()로 표현.
+# - list와 동일한 형태의 자료구조 형태이나, 한번 선언되면, 내부 요소의 추가/변경/삭제가 불가능.
+# - 변경되지 않아야 할 자료를 담을 때 활용. (* 실질적으로는 대부분 list가 더 많이 활용됨.)
+
+
+
+numbers2 = (1, 2, 3, 4, 5)
+
+print(type(numbers2))
+print(numbers2)
+
+numbers2.append(6)
+# 에러 발생. tuple 에는 append 속성이 없다고 함.
+# 마찬가지로, count(), index(), len() 정도의 함수만 있고, list 에서 사용하는 다수의 함수들이 tuple에 존재하지 않음.
+# 단, 자료구조 형태는 같으므로, 값을 변경해야 할 경우, list 형변환을 통해 변경하는 것을 권장하고 있음.
+
+temp = list(numbers2)
+temp.append(6)
+number2 = tuple(temp)
+
+print(number2)
+
+
+# 3.3 range
+
+# range 는 별도의 자료형으로 존재하나, collection 형태의 자료구조와는 거리가 멀고 순수하게 범위를 뜻함.
+# for 문 등의 반복문에 주로 활용됨.
+
+a = range(2,6)
+
+print(a)
+print(type(a))
+
+print(list(a))
+
+dir(a)
+
+
+
+# 9. bool
+
+# - 참 or 거짓을 나타내는 자료형.
+# - True, False 모두 대문자 값만을 가짐.(", ' 등의 따옴표 없이 입력)
+# - 다른 자료형의 값에 따라 참과 거짓을 구별하기도 한다.
+
+#     값     Ture or False
+#  "문자열"     True
+#  ""           False
+#  [1, 2, 3]    True
+#  []           False
+#  ()           False
+#  {}           False
+#  1(*0 이 아닌 모든 숫자) True
+#  0            False
+#  None         False
+
+
+a = True
+
+print(a)
+
+print(bool("이것은 공백 문자가 아닙니다."))
+print(bool(""))
+print(bool([]))
+print(bool(()))
+print(bool({}))
+
+b = bool(6)
+print(b)
+print(int(b))
+print(bool(0))
