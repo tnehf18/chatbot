@@ -116,7 +116,6 @@ print(msg1, type(msg1))
 
 print(msg2, type(msg2))
 
-
 # * 위 두 결과는 동일하므로, javaScript 처럼 작은 따옴표와 큰 따옴표를 활용 가능.
 #    ex) "It's a fine day.", 'He said loudly, "The end will comes".'
 
@@ -137,7 +136,6 @@ print(msg3, type(msg3))
 msg4 = "아무개님께,\n\n이 편지는 영국에서 최초로 시작되어 일년에 한 바퀴 돌면서 받는 사람에게 행운을 주었고\n지금은 당신에게로 옮겨진 이 편지는 4일 안에..."
 
 print(msg4, type(msg4), msg3 == msg4)
-
 
 # 2.1 문자열 연산
 
@@ -164,7 +162,6 @@ str3 = "나는 자유다!"
 print("자유" in str3)
 
 # * 이 외 len(str1), split(str1) 등 문자열 함수에 대해서는 추후에 다룰 예정.
-
 
 
 # 3. Sequence 형
@@ -197,7 +194,6 @@ print(values, type(values))
 # - 시작은 C계열 언어와 동일하게 0 부터 시작.
 
 print(values[0])
-
 
 # - 0 이하의 값 입력이 가능함.(뒤에서부터, 단, 시작 위치에 주의.)
 
@@ -266,7 +262,7 @@ print(values1)
 print(values1.count("라면"))
 
 # index()
-print(values1.index("라면"))    # -> 처음 확인된 위치만 return
+print(values1.index("라면"))  # -> 처음 확인된 위치만 return
 
 # insert()
 values1.insert(6, "만두")
@@ -286,7 +282,6 @@ print(values1)
 
 values1.sort(reverse=True)
 print(values1)
-
 
 # list 리스트의 Unpack 하기
 # 변수 선언시 변수 값을 list 로 선언할 경우, 자동으로 해당 list의 길이만큼 순서대로 값이 할당된다.
@@ -309,13 +304,11 @@ print(green)
 print(yellow)
 print(red)
 
-
 [green, yellow, *red] = fruits
 
 print(green)
 print(yellow)
 print(red)
-
 
 values = [green, yellow, *red] = fruits
 
@@ -337,13 +330,11 @@ list2 = [1, 2, 3]
 list3 = list1 + list2
 print(list3)
 
-
 # 3.2 tuple 튜플
 
 # - 괄호 ()로 표현.
 # - list와 동일한 형태의 자료구조 형태이나, 한번 선언되면, 내부 요소의 추가/변경/삭제가 불가능.
 # - 변경되지 않아야 할 자료를 담을 때 활용. (* 실질적으로는 대부분 list가 더 많이 활용됨.)
-
 
 
 numbers2 = (1, 2, 3, 4, 5)
@@ -361,7 +352,6 @@ temp.append(6)
 number2 = tuple(temp)
 
 print(number2)
-
 
 # 3.3 range
 
@@ -382,7 +372,6 @@ a = range(2, 10, 2)
 print(list(a))
 
 # range 의 속성값들은 모두 readonly 로 변경이 불가.
-
 
 
 # 4. Set
@@ -513,7 +502,6 @@ print(z, type(z))
 # frozenset 에 다른 set을 합친 결과는 frozenset이 됨.
 print(z | y)
 
-
 # 5. 매핑형
 
 # dict: 딕셔너리
@@ -523,10 +511,10 @@ print(z | y)
 # - Key 로 list 나 set 등의 컬렉션 형태의 자료형은 사용할 수 없다.
 
 dict1 = {
-  1: "Ford",
-  "model": "Mustang",
-  "year": 1964,
-  None: None
+    1: "Ford",
+    "model": "Mustang",
+    "year": 1964,
+    None: None
 }
 
 print(dict1)
@@ -556,7 +544,6 @@ print(dict1.keys(), type(dict1.keys()))
 # popitem()	    : 마지막에 입력된 key 요소를 제거.
 # setdefault()	: 딕셔너리에 해당 key 와 value 를 추가하고 value 값을 return. 단, 이미 key가 있는 경우, 기존 키의 값을 return만 함.
 # update()	    : 딕셔너리에 해당 key 와 value 를 추가하거나 해당 키의 값을 바꿈. (* 인자로 dict 형태로 넣어야 함.)
-
 
 
 # 6. bool
