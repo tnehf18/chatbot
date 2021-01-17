@@ -20,5 +20,5 @@
  - 카카오톡 챗봇 만들기 프로젝트
  
  
- ## < 교재 >
+## < 교재 >
 처음 배우는 딥러닝 챗봇: <https://www.hanbit.co.kr/store/books/look.php?p_code=B7030488815> [한빛미디어]
