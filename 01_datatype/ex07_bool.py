@@ -32,6 +32,7 @@ print(bool(()))
 print(bool({}))
 
 b = bool(6)
+
 print(b)
 print(int(b))
 print(bool(0))
