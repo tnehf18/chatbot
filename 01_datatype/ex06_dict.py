@@ -18,6 +18,7 @@ car = {
     "model": "Mustang",
     "year": 1964
 }
+
 print(car)
 
 # 요소 추가/수정
