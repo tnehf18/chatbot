@@ -152,6 +152,7 @@ values1 = ["사과", "바나나", "오렌지"]
 values2 = ["라면", "떡볶이", "김말이"]
 
 print("values1", values1)
+
 print("values2", values2)
 
 # append()
