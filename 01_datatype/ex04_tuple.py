@@ -108,7 +108,6 @@ fruits = ('apple', 'banana', 'banana', 'orange')
 
 print("fruits", fruits)
 
-
 # count()
 print("\n# count()")
 
