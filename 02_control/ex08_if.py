@@ -57,37 +57,51 @@ print("\n# elif")
 
 # if ~ else 만으로 할 경우
 
-a = 5
-b = 12
-c = 1
+score = 84
 
-if a > b:
-    print("a가 b 보다 큽니다.")
+if score >= 90:
+    print("Grade A")
 else:
-    if a > c:
-        print("a는 b 보다 작고 c 보다 큽니다.")
+    if score >= 80:
+        print("Grade B")
     else:
-        print("a가 가장 작습니다.")
+        if score >= 70:
+            print("Grade C")
+        else:
+            if score >= 60:
+                print("Grade D")
+            else:
+                print("Grade F")
 
 # elif 사용시
 
-if a > b:
-    print("a가 b 보다 큽니다.")
-elif a > c:
-    print("a는 b 보다 작고 c 보다 큽니다.")
+if score >= 90:
+    print("Grade A")
+elif score >= 80:
+    print("Grade B")
+elif score >= 70:
+    print("Grade C")
+elif score >= 60:
+    print("Grade D")
 else:
-    print("a가 가장 작습니다.")
+    print("Grade F")
+
 
 # 한 줄로 표현
 
-if a > b: print("a가 b 보다 큽니다.")
-elif a > c: print("a는 b 보다 작고 c 보다 큽니다.")
-else: print("a가 가장 작습니다.")
+if score >= 90: print("Grade A")
+elif score >= 80: print("Grade B")
+elif score >= 70: print("Grade C")
+elif score >= 60: print("Grade D")
+else: print("Grade F")
 
-# 다만 한 줄로 표현할 경우, 실행문이 길면 각 실행문을 구분하기 위해 세미콜론(;)이 필요해지고, 더 보기 안 어려워질 수 있음.
+# 다만 한 줄로 표현할 경우, 실행문이 길면 각 실행문을 구분하기 위해 세미콜론(;)이 필요해지고, 가독성이 더 떨이질 수 있음.
 
-if a > b: print("a가 b 보다 큽니다."); print("야호")
-else: print("a가 가장 작습니다.")
+if score >= 90: print("Grade A")
+elif score >= 80: print("Grade B")
+elif score >= 70: print("Grade C"); print("재수강입니다.")
+elif score >= 60: print("Grade D"); print("재수강입니다.")
+else: print("Grade F"); print("재수강입니다.")
 
 
 # and, or, not
