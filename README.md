@@ -32,4 +32,4 @@ Python Tutorial: <https://www.w3schools.com/python/default.asp> [w3school]
 처음 배우는 딥러닝 챗봇: <https://www.hanbit.co.kr/store/books/look.php?p_code=B7030488815> [한빛미디어]
 
 
-* 본 자료는 위 자료들을 참고하여 작성되었음을 알립니다.
+> ※ 본 자료는 위 자료들을 참고하여 작성되었음을 알립니다.
