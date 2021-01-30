@@ -12,7 +12,7 @@
 
 #### 3주차) 1/31
  - [모듈](https://github.com/tnehf18/chatbot/blob/master/ch05_module/%EB%AA%A8%EB%93%88.md "모듈")
- - 예외처리
+ - [예외처리](https://github.com/tnehf18/chatbot/blob/master/ch06_exception/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC.md "예외처리")
 
 #### 4주차) 2/7 
  - 엑셀 파일을 읽고 쓰는 방법
