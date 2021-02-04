@@ -177,7 +177,7 @@ sql = '''
 INSERT INTO tb_student(name, age, address) VALUES(%(name)s, %(age)s, %(address)s)
 '''
 
-# %(키 이름)s 형태로 매핑하며 딕셔너리 매핑 가능. %()s 안에는 따옴표없이 입력해야 함.
+# %(키 이름)s 형태로 딕셔너리와 매핑 가능. %()s 안에는 따옴표없이 입력해야 함.
 
 # 재접속
 db.connect()
