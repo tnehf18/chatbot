@@ -130,8 +130,8 @@ finally:
 # 따라서, 아래처럼 할 것을 권장하고 있음.
 print("\n# SQL Injection 방지")
 
-a = "홍길동 (튜플)"
-b = 35
+a = "아리랑"
+b = 18
 c = "대한민국"
 
 sql = '''
@@ -171,7 +171,7 @@ finally:
 # 딕셔너리 매핑
 print("\n# 딕셔너리 매핑")
 
-params = {"name": "홍길동 (딕셔너리)", "age": 35, "address": "대한민국"}
+params = {"name": "아무개", "age": 38, "address": "대한민국"}
 
 sql = '''
 INSERT INTO tb_student(name, age, address) VALUES(%(name)s, %(age)s, %(address)s)
