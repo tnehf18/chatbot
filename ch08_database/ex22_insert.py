@@ -86,8 +86,9 @@ finally:
     print(f"[DB 접속 종료]: {db.host_info} {db.user.decode('utf-8')} [{dt.datetime.now()}]")
 
 
-# ☆☆☆ SQL Injection 예방
-print("\n[ ☆☆☆ SQL Injection 예방 ] ────────────────────────────────────────────────────────────────────────────────\n")
+# ☆☆☆
+# 2.1.1 쿼리문 매개변수 매핑
+print("\n[ 2.1.1 쿼리문 매개변수 매핑 ] ────────────────────────────────────────────────────────────────────────────\n")
 
 # 보통 sql 문을 직접 다 쓰지는 않고 변수와 함께 포맷팅 해서 사용함.
 
@@ -127,9 +128,10 @@ finally:
 # 그러나, SQL Injection 공격에 취약한 Bad Case.
 
 # 따라서, 아래처럼 할 것을 권장하고 있음.
+print("\n# SQL Injection 방지")
 
-a = "아리랑"
-b = 18
+a = "홍길동 (튜플)"
+b = 35
 c = "대한민국"
 
 sql = '''
@@ -166,9 +168,48 @@ finally:
 
 # 그러나 Java 에서 사용하는 PreparedStatement 만큼 강력한 방어 기능을 제공하는 것 같진 않으므로 확인 필요.
 
+# 딕셔너리 매핑
+print("\n# 딕셔너리 매핑")
 
-# 2.1.1 쿼리문 반복 실행
-print("\n[ 2.1.1 쿼리문 반복 실행 ] ────────────────────────────────────────────────────────────────────────────────\n")
+params = {"name": "홍길동 (딕셔너리)", "age": 35, "address": "대한민국"}
+
+sql = '''
+INSERT INTO tb_student(name, age, address) VALUES(%(name)s, %(age)s, %(address)s)
+'''
+
+# %(키 이름)s 형태로 매핑하며 딕셔너리 매핑 가능. %()s 안에는 따옴표없이 입력해야 함.
+
+# 재접속
+db.connect()
+
+cursor = db.cursor()
+
+try:
+    cursor.execute(sql, params)
+except Exception as e:
+    cursor.rollback()
+    print(f"[SQL 에러]: {e.__traceback__}")
+else:
+
+    db.commit()
+
+    print(f"[DB 수행 성공]: {db.host_info} {db.user.decode('utf-8')} [{dt.datetime.now()}]", sql)
+    print(f"수행 결과 : {cursor.rowcount}")
+finally:
+    cursor.close()
+    db.close()
+    print(f"[DB 접속 종료]: {db.host_info} {db.user.decode('utf-8')} [{dt.datetime.now()}]")
+
+# PyMySQL 모듈 내부에서 각각 sql 문과 인자를 매핑하여 쿼리를 수행함.
+# 이렇게 할 것을 권장하고 있으므로 참조.
+
+# 같은 이유로, format 함수나 f-string 역시 취약함.
+
+# 그러나 Java 에서 사용하는 PreparedStatement 만큼 강력한 방어 기능을 제공하는 것 같진 않으므로 확인 필요.
+
+
+# 2.1.2 쿼리문 반복 실행
+print("\n[ 2.1.2 쿼리문 반복 실행 ] ────────────────────────────────────────────────────────────────────────────────\n")
 
 # executemany(sql, params_list): 동일한 sql 문을 params_list 의 길이만큼 반복수행 하는 함수.
 print("\n# executemany()")
