@@ -27,8 +27,8 @@ def conn(host, user, password, schema=None, charset='utf8'):
         return db
 
 
-# # 쿼리 수행함수 - 예제 반복하는 게 싫어서 만들었는데, 처음 개념을 잡는 것이므로 주석처리하고, 귀찮아도 쓰기로 했습니다.
-# # 사용방법      - queryExecute(①커넥션, ②쿼리문, ③쿼리문에 매핑할 인수(optional, 리스트, 튜플 형태))
+# # 쿼리 수행함수 - 예제에 코드 반복하는 게 싫어서 만들었는데, 처음 개념을 잡는 것이므로 주석처리하고 귀찮아도 다 쓰기로 했습니다.
+# # 사용방법      - queryExecute(①커넥션, ②쿼리문, ③쿼리문에 매핑할 인수(optional, 리스트, 튜플, 딕셔너리 형태))
 # # return        - 결과값으로 rowcount 를 반환합니다.
 # def queryExecute(conn, query, values=None):
 #     if not conn.open:
@@ -200,12 +200,8 @@ finally:
     db.close()
     print(f"[DB 접속 종료]: {db.host_info} {db.user.decode('utf-8')} [{dt.datetime.now()}]")
 
-# PyMySQL 모듈 내부에서 각각 sql 문과 인자를 매핑하여 쿼리를 수행함.
-# 이렇게 할 것을 권장하고 있으므로 참조.
 
-# 같은 이유로, format 함수나 f-string 역시 취약함.
-
-# 그러나 Java 에서 사용하는 PreparedStatement 만큼 강력한 방어 기능을 제공하는 것 같진 않으므로 확인 필요.
+# 사실상, 딕셔너리 매핑 형태를 가장 많이 활용함.
 
 
 # 2.1.2 쿼리문 반복 실행
