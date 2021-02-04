@@ -15,7 +15,10 @@
  - [예외처리](https://github.com/tnehf18/chatbot/blob/master/ch06_exception/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC.md "예외처리")
 
 #### 4주차) 2/7 
- - 엑셀 파일을 읽고 쓰는 방법
+ - [엑셀 파일을 읽고 쓰는 방법](https://github.com/tnehf18/chatbot/blob/master/ch07_file/%ED%8C%8C%EC%9D%BC%EC%B2%98%EB%A6%AC.md "파일 처리")
+
+### 번외
+  - [데이터베이스](https://github.com/tnehf18/chatbot/blob/master/ch08_database/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4.md "데이터베이스")
 
 #### 5주차, 6주차) 2/14, 2/21
  - 카카오톡 챗봇 만들기 프로젝트
