@@ -36,7 +36,7 @@ proc_name = "proc_transfer_std"
 
 params = ("전학생", 20, "국적불명")
 
-cursor = db.cursor()
+cursor = db.cursor(pymysql.cursors.DictCursor)
 
 try:
     cursor.callproc(proc_name, params)  # 인자는 튜플 or 리스트로 전달
