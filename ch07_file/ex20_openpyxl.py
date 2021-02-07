@@ -44,7 +44,7 @@ sheet = wb.active
 sheet.title = "성적(원본)"
 
 # 첫 행 (헤더): 컬럼 저장
-header_titles = ['이름', '전화전호', '국어', '영어', '수학']
+header_titles = ['이름', '전화번호', '국어', '영어', '수학']
 for i, col_name in enumerate(header_titles):
     sheet.cell(row=1, column=i+1, value=col_name)
 
