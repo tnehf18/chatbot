@@ -21,8 +21,42 @@
   - [데이터베이스 제어](https://github.com/tnehf18/chatbot/blob/master/ch08_database/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4.md "데이터베이스")
 
 #### 5주차, 6주차) 2/14, 2/21
-  - 카카오톡 챗봇 만들기 프로젝트
+  - 챗봇 만들기 프로젝트
+
+
+### 프로젝트
+
+> 챗봇 API 서버: <https://www.memoryrecord.site/>
+
+> 카카오톡 채널: 구현중
  
+> 네이버톡톡 채널: <https://talk.naver.com/W47XFR>
+
+
+- 운영 환경
+
+```
+서버 OS: 우분투 18.04 LTS (AWS EC2)
+웹 서버: NGINX 1.14
+```
+
+
+- 프로젝트 소스 구성
+
+```
+프로젝트 ROOT
+┝─── static             # css, js, 이미지 파일 등 정적 리소스
+┝─── template           # html 등 웹 페이지 화면  ※ 현재는 없음.
+┝─── event_handler      # 이벤트 처리 모듈
+│       │
+│       ┝─── kakaoTalk.py       # 카카오톡 이벤트 처리 모듈
+│       └─── naverTalk.py       # 네이버톡톡 이벤트 처리 모듈
+┝─── api.py             # 챗봇 API 모듈
+└─── engine.py          # 챗봇 엔진 모듈
+```
+
+
+
  
 ## < 교재 >
 
