@@ -170,12 +170,30 @@ def kakao_api():
     skill = KakaoTemplate()
 
     body = request.get_json()
+    print(json.dumps(body, indent=4))
+
     req = body['userRequest']
 
-    contents = engine.getResponse(req['utterance'])
+    # 임시적으로 이렇게함 엔진 다 뜯어고쳐야함 ㅠ
+    textContent = {
+        "inputType": "typing",
+        "text": '안녕'
+    }
 
+    contents = engine.getResponse(textContent)
 
-    return skill.send_resp(contents)
+    return {
+        "version": "1.0",
+        "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": "hello"
+                    }
+                }
+            ]
+        }
+    }
 
 
 if __name__ == '__main__':
