@@ -28,13 +28,15 @@ def index():
 # API 연결
 @app.route('/talk/<platform>', methods=['POST'])
 def talk(platform):
+
     if platform == "NAVER":
         # 네이버톡톡
         return naver_api()
+
     elif platform == "KAKAO":
         # 카카오톡
-        # kakao_api()
-        abort(404, "아직 미구현 상태입니다.")
+        return kakao_api()
+
     else:
         # 정의되지 않은 platform 일 경우 404 오류
         abort(404, "알 수 없는 요청입니다.")
@@ -48,10 +50,11 @@ def naver_api():
 
     handler = NaverHandler('FActz2vcTDqHeOLgFkyo')
 
+    body = request.get_json()
+    user_key = body['user']
+    event = body['event']
+
     try:
-        body = request.get_json()
-        user_key = body['user']
-        event = body['event']
 
         if event == "open":
             # 채팅방 입장시 이벤트
@@ -156,6 +159,22 @@ def naver_api():
         print(e.args)
         abort(500)
         return json.dumps({}), 500
+
+
+# 카카오톡 API
+def kakao_api():
+
+    # KakaoTemplate 클래스 생성
+    from event_handler.kakaoTalk import KakaoTemplate
+
+    skill = KakaoTemplate()
+
+    body = request.get_json()
+    req = body['userRequest']
+
+    contents = engine.getResponse(req['utterance'])
+
+    return skill.send_resp(contents)
 
 
 if __name__ == '__main__':
