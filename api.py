@@ -174,6 +174,7 @@ def kakao_api():
 
     contents = engine.getResponse(req['utterance'])
 
+
     return skill.send_resp(contents)
 
 
