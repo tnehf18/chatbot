@@ -57,11 +57,13 @@
 
 ※ 참고:
 
-[네이버 API 문서](https://github.com/navertalk/chatbot-api "네이버 API 문서")
+[네이버톡톡 챗봇 API 문서](https://github.com/navertalk/chatbot-api "네이버톡톡 챗봇 API 문서")
 
 [네이버 톡톡 파이썬 모듈](https://github.com/hwonyo/naver_talk_sdk "네이버 톡톡 파이썬 모듈") by hwonyo
+
+[카카오 i 오픈빌더 문서](https://i.kakao.com/docs/key-concepts-block "카카오 i 오픈빌더 문서")
 ```
-※ 기본적으로 네이버톡톡 API는 node.js, 스프링, php 로 예제를 설명하고, 파이썬용은 따로 없는데,
+※ 기본적으로 네이버톡톡 API 문서는 node.js, 스프링, php 를 예제를 설명하고, 파이썬용은 따로 없는데,
   다른 분이 비즈니스 로직에 집중할 수 있도록 만든 파이썬용 오픈 소스 모듈입니다.
   
   굉장히 훌륭한 모듈이지만, 기초를 학습하고자 하는 목적에서 본 프로젝트에는 사용되지 않았습니다. 
