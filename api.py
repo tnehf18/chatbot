@@ -183,12 +183,12 @@ def kakao_api():
     contents = engine.getResponse(textContent)
 
     return {
-        "version": "1.0",
+        "version": "2.0",
         "template": {
             "outputs": [
                 {
                     "simpleText": {
-                        "text": "hello"
+                        "text": "안녕"
                     }
                 }
             ]
